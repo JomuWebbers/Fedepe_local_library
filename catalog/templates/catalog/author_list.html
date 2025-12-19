@@ -1,0 +1,21 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<div class="mt4">
+  <h1>Author List</h1>
+  {% if author_list %}
+    <ul class="author-list">
+      {% for author in author_list %}
+        <li><a class="author-link" href="{{ author.get_absolute_url }}">{{ author  }} ({{ author.date_of_birth }} - {% if author.date_of_death %}{{ author.date_of_death}}{% else %}&nbsp;{% endif %})</a></li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No authors available.</p>
+  {% endif %}
+</div>
+{% endblock %}
+
+
+
+
+

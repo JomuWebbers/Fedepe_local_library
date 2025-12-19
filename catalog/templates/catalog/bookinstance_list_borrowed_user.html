@@ -1,0 +1,30 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Borrowed books</h1>
+
+    {% if bookinstance_list %}
+    <ul id="Allborrowed_books">
+
+      {% for bookinst in bookinstance_list %}
+
+      <li class="{% if bookinst.due_back.month == current_month and bookinst.due_back.year == current_year %}bullet-black{% else %}bullet-red{% endif %}">
+        <a href="{% url 'book-detail' bookinst.book.pk %}" class="books_titles"> {{ bookinst.book.title }} </a>
+        <span class="{% if bookinst.due_back.month == current_month and bookinst.due_back.year == current_year %}text-black{% else %}text-red
+        {% endif %}">
+         (Due: {{ bookinst.due_back }})</span>
+      </li>
+      {% endfor %}
+    </ul>
+
+    {% else %}
+      <p>There are no books borrowed.</p>
+    {% endif %}
+{% endblock %}
+
+
+
+
+
+
+
