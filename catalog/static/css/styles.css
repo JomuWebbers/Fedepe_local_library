@@ -1,0 +1,113 @@
+/* Remove underline from author list links */
+ul.author-list li .author-link {
+  text-decoration: none !important;
+  list-style: none;
+}
+
+/*styling for base_generic.html */
+
+
+.sidebar-nav {
+  margin-top: 20px;
+  padding: 0;
+  list-style: none;
+}
+
+form.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin:18rem;
+  width: 300px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f8f5f5;
+}
+form.login-form .login-table{
+  width: 100%;
+  margin-bottom: 15px;
+  
+}
+form.login-form .login-table tr{
+  margin-bottom: 30px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+form.login-form .login-table tr:last-child{
+  margin-bottom: 10px;
+}
+form.login-form .login-table tr td{
+  font: bold 16px Arial, sans-serif;
+  padding: 4px;
+
+}
+
+#logout-form {
+  display: inline;
+}
+
+#logout-form button {
+  padding: 0;
+  margin: 0;
+  border: none;
+  text-decoration: none;
+}
+
+
+/* styling for bookinstance_list_borrowed_all.html */
+
+
+
+
+#Allborrowed_books li {
+  list-style-type: square;
+  margin-left: 20px;
+}
+
+
+/* Ensure no anchor has underlines for any state; use high specificity to override Bootstrap */
+
+
+body a,
+body a:link,
+body a:visited,
+body a:hover,
+body a:active {
+  text-decoration: none !important;
+}
+
+
+#Allborrowed_books li::marker {
+  font-size: 1.2em;
+}
+
+.bullet-red::marker {
+  color: red;
+}
+
+.bullet-black::marker {
+  color: black;
+}
+
+.text-red {
+  color: red;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.text-black {
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* styling for book_renew_librarian.html */
+
+
+
+
+
+
+
+

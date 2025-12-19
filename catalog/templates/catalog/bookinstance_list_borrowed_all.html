@@ -1,0 +1,36 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>All Borrowed Books</h1>
+  {% if bookinstance_list %}
+
+  <ul id="Allborrowed_books">
+
+  {% for book in bookinstance_list %}
+
+   <li class="{% if book.due_back.month == current_month and book.due_back.year == current_year %}bullet-black{% else %}bullet-red{% endif %}">
+      <a href="{% url 'book-detail' book.book.pk %}" class="books_titles">{{ book.book.title }}</a>
+      <span class="{% if book.due_back.month == current_month and book.due_back.year == current_year %}text-black{% else %}text-red
+      {% endif %}">
+        (Due: {{ book.due_back }}) - {{ book.borrower.first_name }}
+      </span>
+      {% if perms.catalog.can_mark_returned %}- <a class="renew_titles" href="{% url 'renew-book-librarian' book.id %}">Renew</a>{% endif %}
+    </li>
+    <!--- <li class="{% if book.is_overdue %}text-dangers{% endif %}">
+        <a href="{% url 'book-detail' book.book.pk %}">{{ book.book.title }}</a> ({{ book.due_back }}) {% if user.is_staff %}- {{ book.borrower }}{% endif %}
+      </li> -->
+      
+  {% empty %}
+    <li>No books are currently borrowed.</li>
+  {% endfor %}
+</ul>
+
+  {% else %}
+    <p>There are no borrowed books.</p>
+  {% endif %}
+
+{% endblock %}
+
+
+
+
